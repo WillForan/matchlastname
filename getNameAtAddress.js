@@ -1,3 +1,12 @@
+//
+// TODOS
+//  1. get submit to work
+//  2. pull last name from new pages' dome
+//     - follow a redirect
+//  3. compare to expected
+//  4. write out all who match
+//
+//
 // file to check address against last name
 // https://phantomjs.googlecode.com/files/phantomjs-1.9.2-windows.zip
 // https://github.com/ariya/phantomjs/wiki/Quick-Start
