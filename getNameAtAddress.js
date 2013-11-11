@@ -6,12 +6,25 @@
 //
 
 /* do stuff locally */
+var fs = require('fs');
+var filedata = fs.read('namesAndAddress.txt');     // read the file into a single string
+var arrdata = filedata.split(/[\r\n]/); // split the string on newline and store in array
 
-/* do stuff on the web */
+// for arrdata.lenght -> split by \t into 2d array (address and lastname)
+
+
+/* do stuff on the web for each name*/
+//TODO
+// write + put in for loop
 var page=require('webpage').create();
-
-page.open('',submitValues) // open the page
-
 function submitValues(){
  //fill out form
+ //submit
 }
+//TODO, how to read submited data
+
+page.open('http://www2.county.allegheny.pa.us/RealEstate/Search.aspx',submitValues) // open the page
+
+
+
+
