@@ -1,5 +1,5 @@
 // run: casperjs getNameAtAddress.js
-// casperjs getNameAtAddress.js | tee -a stillthere.txt
+// casperjs getNameAtAddress.js | tee stillthere.txt
 //
 // TODOS
 //  1.DONE get submit to work
@@ -35,17 +35,19 @@ for(var idx=0; idx<arrdata.length;idx++){
 
 
 /* do stuff on the web for each name*/
-//TODO: for loop
-// values at [0][*] are titles
-//for(var i=1;i<3;i++){
+// values at data[0][*] are titles
 var  casper = require('casper').create();
-casper.start();
 var i=1;
+
+casper.start();
+
 casper.repeat(arrdata.length-2,function(){ this.wait(3000,function(){
 
   var name = data[i][0];
   var st   = data[i][7];
   var num  = data[i][8];
+  var idxi = i;         // i is scoped outside of loop and increments before we want to call it
+                        // maybe?? -- i and idxi are not the same when I expect them to be
   //console.log(i,name,st,num)
   
   /*queue: load the page*/
@@ -72,14 +74,14 @@ casper.repeat(arrdata.length-2,function(){ this.wait(3000,function(){
     var regname=new RegExp(name,'i');
     var match=regname.test(label);
     //console.log(url)
-    //this.echo(i +': ' +name + ' match web ' + label + '? ' + match,'INFO')
+    this.echo(i +': ' +name + ' match web ' + label + '? ' + match,'INFO')
     if(match){
      //TODO: write to file
      //outfile.writeLine( arrdata[i].concat([label,url]).join("\t")  )
-     var content=arrdata[i] + "\t" + label + "\t" + url //+"\n" ;
-     //console.log('writting ' + content)
-     //write('stillthere.txt',content,'a')
+     var content=arrdata[idxi] + "\t" + label + "\t" + url //+"\n" ;
+     //console.log(i,idxi,label,name,data[idxi]) // i and idxi are not the same
      console.log(content)
+     //write('stillthere.txt',content,'a')
     
     }
     else {
