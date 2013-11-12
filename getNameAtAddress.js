@@ -74,7 +74,7 @@ casper.repeat(arrdata.length-2,function(){ this.wait(3000,function(){
     var regname=new RegExp(name,'i');
     var match=regname.test(label);
     //console.log(url)
-    this.echo(i +': ' +name + ' match web ' + label + '? ' + match,'INFO')
+    //this.echo(i +': ' +name + ' match web ' + label + '? ' + match,'INFO')
     if(match){
      //TODO: write to file
      //outfile.writeLine( arrdata[i].concat([label,url]).join("\t")  )
